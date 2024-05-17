@@ -4,12 +4,12 @@ This webapp provides a set of algorithmic problems which can be solved using the
 
 Key Features:
 
-1.APIs
-2.CRUD Operations
-3.Code execution
-4.Session manangement and Account management
-5.Authentication and Authorisation
-6.State management
+1. APIs
+2. CRUD Operations
+3. Code execution
+4. Session manangement and Account management
+5. Authentication and Authorisation
+6. State management
 
 The project has been deployed using https://vercel.com/
 
