@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Auth from "./components/Pages/Auth/Auth";
+import Home from "./components/Pages/Home/Home";
+import Loading from "./components/Pages/Loading/Loading";
+import ProblemPage from "./components/Pages/ProblemPage/[pid]";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./firebase/firebase";
+import NotAuthorised from "./components/Pages/NotAuthorised/NotAuthorised";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const [user, loading] = useAuthState(auth);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }else{
+    if(!user){
+      console.log(user)
+    }
+    
+    return (
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Auth user={user}/>} />
+          <Route
+            exact
+            path="/home"
+            element={<Home user={user}/>}
+          />
+          <Route
+            exact
+            path="/problems/:problemId"
+            element={<ProblemPage user={user}/>}
+          />
+        </Routes>
+      </Router>
+    );
+  }
+  
 }
 
 export default App;
