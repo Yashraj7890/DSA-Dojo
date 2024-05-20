@@ -1,4 +1,4 @@
-DSA-Dojo is a webapp that can be used to solve DSA problems in javascript.
+DSA-Dojo is a webapp that can be used to solve DSA problems in Javascript.
 
 This webapp provides a set of algorithmic problems which can be solved using the inbuilt code editor (similar to leetcode). The webapp uses node.js to run the user's JS code on the client side and check it against the testcases and log any errors if found and the code is temporarily stored in the localstorage for better user experience. The project has been put together using the MERN stack and Google Firebase.
 
